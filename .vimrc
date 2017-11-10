@@ -43,7 +43,7 @@ noremap P P=`]<C-o>
 
 "" Advanced
 set ruler                             " Show row and column ruler info
-set list listchars=tab:\ \,trail:·    " Highlight trailing whitespace
+set list listchars=tab:\ \ ,trail:·    " Highlight trailing whitespace
 set undolevels=1000                   " Number of undo levels
 set encoding=utf-8                    " Set encoding to UTF-8
 set wildmenu                          " Visual autocomplete for command menu
