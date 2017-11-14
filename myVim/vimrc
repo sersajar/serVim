@@ -54,6 +54,7 @@ noremap P P=`]<C-o>
 " Advanced Settings {{{
 "" Advanced
 set ruler                             " Show row and column ruler info
+set clipboard+=unnamed                " Use system clipboard
 set foldenable                        " Enable folding
 set foldmethod=marker                 " Gives the ilusion of remembering folds
 set splitbelow                        " New windows appears below...
@@ -65,9 +66,9 @@ set wildmenu                          " Visual autocomplete for command menu
 set autoread                          " Reload files changed outside vim
 set backspace=indent,eol,start        " Backspace behaviour
 
-"" Always highlight column 80
+"" Always highlight column 90
 autocmd BufWinEnter * highlight ColorColumn ctermbg=white
-set colorcolumn=80
+set colorcolumn=90
 " }}}
 
 " Useful Mappings {{{
@@ -77,7 +78,19 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
+"" Open(Alt+up) and close(Alt+down) all Foldings 
+noremap <A-Up> <Esc>zR
+noremap <A-Down> <Esc>zM
+
+"" Moving in INSERT mode to the begging(I) or the end(A) of line
+inoremap <A-Left> <Esc>I
+inoremap <A-Right> <Esc>A
+
+"" Select and yank until beggining or end of line
+inoremap <S-Left> <Esc>v0
+inoremap <S-Right> <Esc>vg_
+
 "" Map Y to yank until EOL without newline, acting like yg_
-map Y yg_
+noremap Y yg_
 " }}}
 
