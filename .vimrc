@@ -78,6 +78,7 @@ set list listchars=tab:\ \ ,trail:·   " Highlight trailing whitespace
 set undolevels=1000                   " Number of undo levels
 set encoding=utf-8                    " Set encoding to UTF-8
 set wildmenu                          " Visual autocomplete for command menu
+set lazyredraw                        " Not redraw when using macros
 set autoread                          " Reload files changed outside vim
 set backspace=indent,eol,start        " Backspace behaviour
 
