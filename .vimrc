@@ -14,7 +14,7 @@ set nobackup                  " No backup files
 set nowritebackup             " No write backup
 set noswapfile                " No swap file
 set history=100               " Command history
-set wrap                      " dont Wrap lines
+set wrap                      " Wrap lines
 set linebreak                 " Break lines at word (requires Wrap lines)
 set showbreak=+++             " Wrap-broken line prefix
 set textwidth=90              " Line wrap (num of cols)
