@@ -1,8 +1,6 @@
-"" my VIM vimrc file without extra plugins
+"" my VIM vimrc file without extra plugins November 2017
 
-"" Exit instantly from VISUAL mode
-vnoremap <Esc> <Esc>
-
+"" VIM Basics
 syntax on                     " Switch syntax highlighting on
 filetype on                   " Detect type of file
 set nocompatible              " Use vim api, not vi
@@ -14,7 +12,8 @@ set hidden                    " Buffers can exist in the background
 "" General
 set title                     " Show file in titlebar
 set number                    " Show line numbers
-set wrap                      " dont Wrap lines
+set confirm                   " Asks before executing a command
+set wrap                      " Wrap lines
 set linebreak                 " Break lines at word (requires Wrap lines)
 set showbreak=+++             " Wrap-broken line prefix
 set textwidth=90              " Line wrap (num of cols)
@@ -64,13 +63,18 @@ noremap P P=`]<C-o>
 "" Advanced
 let mapleader="ç"                     " remap <Leader> (\) for ç (ç)
 set ruler                             " Show row and column ruler info
+set nobackup                          " No backup files
+set nowritebackup                     " No write backup
+set noswapfile                        " Dont create swap file
+set lazyredraw                        " No redraw when executing macros
+set history=100                       " Command history
 set mouse=v                           " Use mouse ONLY in VISUAL mode
 set clipboard+=unnamed                " Use system clipboard
 set foldenable                        " Enable folding
 set foldmethod=marker                 " Gives the ilusion of remembering folds
 set splitbelow                        " New windows appears below...
 set splitright                        " ... and to the right
-set list listchars=tab:\ \ ,trail:·   " Highlight trailing whitespace
+set list listchars=tab:>-  ,trail:·   " Highlight trailing whitespace
 set undolevels=1000                   " Number of undo levels
 set encoding=utf-8                    " Set encoding to UTF-8
 set wildmenu                          " Visual autocomplete for command menu
@@ -83,25 +87,16 @@ set colorcolumn=90
 " }}}
 
 " Useful Mappings {{{
-"" Disable arrow keys to move through NORMAL mode
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+"" Exit instantly from VISUAL mode, but better...
+vnoremap <Esc> <Esc>
 
-"" Shift+arrow to navigate through windows
-nmap <silent> <S-Up> :wincmd k<CR>
-nmap <silent> <S-Down> :wincmd j<CR>
-nmap <silent> <S-Left> :wincmd h<CR>
-nmap <silent> <S-Right> :wincmd l<CR>
+"" ... typing double comma (,,) maps to <Esc> togo to NORMAL mode
+noremap ,, <Esc>
+inoremap ,, <Esc>
 
 "" Open(Alt+up) and close(Alt+down) all Foldings in NORMAL mode
 noremap <A-Up> <Esc>zR
 noremap <A-Down> <Esc>zM
-
-"" Moving in INSERT mode to the begging(I) or the end(A) of line
-inoremap <A-Left> <Esc>I
-inoremap <A-Right> <Esc>A
 
 "" Select and yank until beggining or end of line
 inoremap <S-Left> <Esc>v0
@@ -110,7 +105,7 @@ inoremap <S-Right> <Esc>vg_
 "" Map Y to yank until EOL without newline, acting like yg_
 noremap Y yg_
 
-"" Select a paragraph, block or inside quotes text into VISUAL mode
+"" Select sentence, paragraph, block or quotes and go into VISUAL mode
 noremap  Z vis
 noremap <CR> vip
 noremap <space> vi}
@@ -119,4 +114,47 @@ noremap <Leader> vi"
 noremap <Leader><Leader> va"
 
 " }}}
+
+" Navigation Mappings {{{
+"" Disable arrow keys to move through NORMAL mode
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+"" Use Alt-N to switch between buffers where N is the buff number 1-9
+map <A-1> :confirm :b1 <CR>
+map <A-2> :confirm :b2 <CR>
+map <A-3> :confirm :b3 <CR>
+map <A-4> :confirm :b4 <CR>
+map <A-5> :confirm :b5 <CR>
+map <A-6> :confirm :b6 <CR>
+map <A-7> :confirm :b7 <CR>
+map <A-8> :confirm :b8 <CR>
+map <A-9> :confirm :b9 <CR>
+
+"" Shift+arrow to navigate through windows
+nmap <silent> <S-Up> :wincmd k<CR>
+nmap <silent> <S-Down> :wincmd j<CR>
+nmap <silent> <S-Left> :wincmd h<CR>
+nmap <silent> <S-Right> :wincmd l<CR>
+
+"" Moving in INSERT mode to the begging(I) or the end(A) of line
+inoremap <A-Left> <Esc>I
+inoremap <A-Right> <Esc>A
+
+" }}}
+
+" Commands {{{
+" Jump to last cursor
+autocmd BufReadPost *
+   \ if line ("'\"") > 0 && line("'\"") <= line("$") |
+   \   exe "normal g`\"" |
+   \ endif
+
+" }}}
+
+"" Uncomment to use a dictionary. Set spell path before.
+"setlocal spell spelllang=en_gb
+"set dictionary-=/path/to/spell/dict dictionary+=/path/to/spell/dict
 
