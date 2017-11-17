@@ -4,15 +4,16 @@
 vnoremap <Esc> <Esc>
 
 syntax on                     " Switch syntax highlighting on
+filetype on                   " Detect type of file
 set nocompatible              " Use vim api, not vi
 set showcmd                   " Show incomplete commands
 set showmode                  " Show current mode down bottom
 set hidden                    " Buffers can exist in the background
-set title                     " Show file in titlebar
-set number                    " Show line numbers
 
 " General Settings {{{
 "" General
+set title                     " Show file in titlebar
+set number                    " Show line numbers
 set wrap                      " dont Wrap lines
 set linebreak                 " Break lines at word (requires Wrap lines)
 set showbreak=+++             " Wrap-broken line prefix
@@ -57,10 +58,10 @@ set softtabstop=4             " Number of spaces per Tab
 noremap p p=`]<C-o>
 noremap P P=`]<C-o>
 " }}}
-
 " Advanced Settings {{{
 "" Advanced
-let mapleader=","                     " remap <Leader> (\) for comma (,)
+
+let mapleader="ç"                     " remap <Leader> (\) for ç (ç)
 set ruler                             " Show row and column ruler info
 set mouse=v                           " Use mouse ONLY in VISUAL mode
 set clipboard+=unnamed                " Use system clipboard
@@ -74,6 +75,7 @@ set encoding=utf-8                    " Set encoding to UTF-8
 set wildmenu                          " Visual autocomplete for command menu
 set autoread                          " Reload files changed outside vim
 set backspace=indent,eol,start        " Backspace behaviour
+set pastetoggle=<f12>                 " Paste toggle on/off
 
 "" Always highlight column 90
 autocmd BufWinEnter * highlight ColorColumn ctermbg=white
