@@ -2,7 +2,6 @@
 
 "" Exit instantly from VISUAL mode
 vnoremap <Esc> <Esc>
-noremap <A-space> <Esc>
 
 syntax on                     " Switch syntax highlighting on
 filetype on                   " Detect type of file
