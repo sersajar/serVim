@@ -1,20 +1,19 @@
 "" my VIM vimrc file without extra plugins
 
+"" Exit instantly from VISUAL mode
+vnoremap <Esc> <Esc>
+
 syntax on                     " Switch syntax highlighting on
 set nocompatible              " Use vim api, not vi
 set showcmd                   " Show incomplete commands
 set showmode                  " Show current mode down bottom
 set hidden                    " Buffers can exist in the background
 set title                     " Show file in titlebar
+set number                    " Show line numbers
 
 " General Settings {{{
 "" General
-set number                    " Show line numbers
-set nobackup                  " No backup files
-set nowritebackup             " No write backup
-set noswapfile                " No swap file
-set history=100               " Command history
-set wrap                      " Wrap lines
+set wrap                      " dont Wrap lines
 set linebreak                 " Break lines at word (requires Wrap lines)
 set showbreak=+++             " Wrap-broken line prefix
 set textwidth=90              " Line wrap (num of cols)
@@ -44,6 +43,7 @@ noremap <silent> <C-l> :nohl<CR><C-l>
 
 " Indentation Settings {{{
 "" Indentation
+filetype plugin indent on
 filetype indent on
 
 set autoindent                " Auto-indent new lines
@@ -58,15 +58,9 @@ noremap p p=`]<C-o>
 noremap P P=`]<C-o>
 " }}}
 
-" Plugins {{{
-
-"execute pathogen#infect()
-"filetype plugin indent on    " Required by Pathogen Plugin Manager
-
-" }}}
-
 " Advanced Settings {{{
 "" Advanced
+let mapleader=","                     " remap <Leader> (\) for comma (,)
 set ruler                             " Show row and column ruler info
 set mouse=v                           " Use mouse ONLY in VISUAL mode
 set clipboard+=unnamed                " Use system clipboard
@@ -78,7 +72,6 @@ set list listchars=tab:\ \ ,trail:·   " Highlight trailing whitespace
 set undolevels=1000                   " Number of undo levels
 set encoding=utf-8                    " Set encoding to UTF-8
 set wildmenu                          " Visual autocomplete for command menu
-set lazyredraw                        " Not redraw when using macros
 set autoread                          " Reload files changed outside vim
 set backspace=indent,eol,start        " Backspace behaviour
 
@@ -115,9 +108,13 @@ inoremap <S-Right> <Esc>vg_
 "" Map Y to yank until EOL without newline, acting like yg_
 noremap Y yg_
 
-"" Select a paragraph of text in VISUAL mode
+"" Select a paragraph, block or inside quotes text into VISUAL mode
+noremap  Z vis
 noremap <CR> vip
-noremap <space> va}
+noremap <space> vi}
+noremap <space><space> va}
+noremap <Leader> vi"
+noremap <Leader><Leader> va"
 
 "" paste mode toggle (needed when using autoindent/smartindent
 "map <f10> :set paste<cr>
