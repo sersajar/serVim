@@ -2,6 +2,7 @@
 
 "" Exit instantly from VISUAL mode
 vnoremap <Esc> <Esc>
+noremap <A-space> <Esc>
 
 syntax on                     " Switch syntax highlighting on
 filetype on                   " Detect type of file
@@ -47,20 +48,21 @@ noremap <silent> <C-l> :nohl<CR><C-l>
 filetype plugin indent on
 filetype indent on
 
-set autoindent                " Auto-indent new lines
-set expandtab                 " Use spaces instead of tabs
-set shiftwidth=4              " Number of auto-indent spaces
-set smartindent               " Enable smart-indent
-set smarttab                  " Enable smart-tabs
-set softtabstop=4             " Number of spaces per Tab
+set autoindent                    " Auto-indent new lines
+set expandtab                     " Use spaces instead of tabs
+set shiftwidth=4                  " Number of auto-indent spaces
+set smartindent                   " Enable smart-indent
+set smarttab                      " Enable smart-tabs
+set softtabstop=4                 " Number of spaces per Tab
+set pastetoggle=<f12>             " Paste toggle on/off
 
 "" Auto-indent pasted text
 noremap p p=`]<C-o>
 noremap P P=`]<C-o>
 " }}}
+
 " Advanced Settings {{{
 "" Advanced
-
 let mapleader="ç"                     " remap <Leader> (\) for ç (ç)
 set ruler                             " Show row and column ruler info
 set mouse=v                           " Use mouse ONLY in VISUAL mode
@@ -75,7 +77,6 @@ set encoding=utf-8                    " Set encoding to UTF-8
 set wildmenu                          " Visual autocomplete for command menu
 set autoread                          " Reload files changed outside vim
 set backspace=indent,eol,start        " Backspace behaviour
-set pastetoggle=<f12>                 " Paste toggle on/off
 
 "" Always highlight column 90
 autocmd BufWinEnter * highlight ColorColumn ctermbg=white
@@ -117,13 +118,6 @@ noremap <space> vi}
 noremap <space><space> va}
 noremap <Leader> vi"
 noremap <Leader><Leader> va"
-
-"" paste mode toggle (needed when using autoindent/smartindent
-"map <f10> :set paste<cr>
-"map <f11> :set nopaste<cr>
-"imap <f10> <c-o> :set paste<cr>
-"imap <f11> <nop>
-"set pastetoggle=<f11>
 
 " }}}
 
