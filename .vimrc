@@ -74,7 +74,7 @@ set foldenable                        " Enable folding
 set foldmethod=marker                 " Gives the ilusion of remembering folds
 set splitbelow                        " New windows appears below...
 set splitright                        " ... and to the right
-set list listchars=tab:>-  ,trail:·   " Highlight trailing whitespace
+set list listchars=tab:\ \ ,trail:·   " Highlight trailing whitespace
 set undolevels=1000                   " Number of undo levels
 set encoding=utf-8                    " Set encoding to UTF-8
 set wildmenu                          " Visual autocomplete for command menu
