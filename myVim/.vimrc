@@ -1,9 +1,8 @@
-"" My vimrc with PATHOGEN plugin manager added.
+"" my VIM vimrc file without extra plugins November 2017-2018
+
 "" VIM Basics
-execute pathogen#infect()
 syntax on                     " Switch syntax highlighting on.
-filetype on                   " Detect type of file
-color monokai                 " Load colorscheme (from ~/vim/colors/).
+filetype on                   " Detect type of file.
 set nocompatible              " Use vim api, not vi.
 set showcmd                   " Show incomplete commands.
 set showmode                  " Show current mode down bottom.
@@ -159,7 +158,6 @@ noremap ¡ $a
 
 "" Select sentence, paragraph, block or quotes and go into VISUAL mode.
 noremap  Z vis
-noremap <CR> vi)
 noremap <CR><CR> vip
 noremap <space> vi}
 noremap <space><space> va}
